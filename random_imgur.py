@@ -50,13 +50,13 @@ class ThreadGet(threading.Thread):
                     print 'trying again...'
                     
                 if f:
-					try:
-						local_file = open(path + img_name + '.jpg', "wb")
-						local_file.write(f.read())
-						local_file.close()
-						good = True
-					except:
-						print e, path + img_name + '.jpg'
+                    try:
+                        local_file = open(path + img_name + '.jpg', "wb")
+                        local_file.write(f.read())
+                        local_file.close()
+                        good = True
+                    except:
+                        print e, path + img_name + '.jpg'
                     
     def run(self):
         while True:
