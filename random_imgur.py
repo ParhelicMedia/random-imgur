@@ -37,6 +37,7 @@ class ThreadGet(threading.Thread):
                 img_name = rand_string(5)
                 url = "http://i.imgur.com/" + img_name + ".jpg"
                 req = Request(url)
+                f = None
                 
                 try:
                     f = urlopen(req)
@@ -47,14 +48,15 @@ class ThreadGet(threading.Thread):
                 except URLError, e:
                     print "URL Error:",e.reason , url
                     print 'trying again...'
-                
-                try:
-                    local_file = open(path + img_name + '.jpg', "wb")
-                    local_file.write(f.read())
-                    local_file.close()
-                    good = True
-                except:
-                    print e, path + img_name + '.jpg'
+                    
+                if f:
+					try:
+						local_file = open(path + img_name + '.jpg', "wb")
+						local_file.write(f.read())
+						local_file.close()
+						good = True
+					except:
+						print e, path + img_name + '.jpg'
                     
     def run(self):
         while True:
