@@ -39,4 +39,3 @@ To view additional command line options:
 * General code reworking and fixes.
 * Added conditions for some uncaught exceptions.
 * Enhanced argument parsing.
-
